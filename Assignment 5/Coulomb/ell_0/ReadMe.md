@@ -20,34 +20,45 @@ Compiler: gcc 11.2.0
 
 This project was created in order to numerically the Schrodinger equation:
 
-(-d^2/dx^2 + l(l+1)/x^2 + V_tilda(x) + E_tilda_nl)u_tilda_nl(x) = 0
+$$ ( -d^{2}/dx^{2} + l(l+1)/x^{2} + \tilde{V}(x) + \tilde{E}_{nl} ) \tilde{u}_{nl}(x) = 0 $$
 
-where mu is the effective mass, the momentum ka = sqrt(s*mu*Ea), and x = ka*r. V_tilda(x) and E_tilda_nl can be written in terms of:
-  V_tilda(x) = V(x/ka)/Ea  and  
-  E_tilda_nl = -|E_nl|/Ea
+where $\mu$ is the effective mass, the momentum $` ka = \sqrt{s* \mu *Ea} `$, and $` x = ka*r `$. $` \tilde{V}(x) `$ and $` \tilde{E}_{nl} `$ can be written in terms of:
 
-We can define the energy scale Ea as the minimum value of the potential V_eff = 1/(2*mu*r^2) + V(r). Here we let l(l+1)->1 and assume that V(r) is no more singular than 1/r as r->0. In order to obtain the minimum point we need to solve the equation
+$$\tilde{V}(x) = V(x/ka)/Ea $$ 
+  
+  and  
 
-V'_eff(r) = -1/(mu*r^3) + V'(r) = 0
+$$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
 
-This can be done by using the first derivative of the function fo calculate the extremum.
+We can define the energy scale $Ea$ as the minimum value of the potential $`V_{eff} = 1/(2* \mu *r^{2}) + V(r)`$. Here we let $`l(l+1)->1`$ and assume that V(r) is no more singular than $`1/r`$ as $`r->0`$. In order to obtain the minimum point we need to solve the equation
+
+ $$ V'_{eff}(r) = -1/(\mu * r^{3}) + V'(r) = 0 $$
+
+This can be done by using the first derivative of the function to calculate the extremum.
 
 Following this, the goal is to numerically solve the Schrodinger equation with the following boundary conditions:
 
-    lim x->0 u_tilda_nl(x) = 0
-    lim x ->oo u_tilda_nl(x) = 0
+$$ \lim_{x\to 0} \tilde{u}_{nl}(x) = 0 $$
 
-The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at x_c:
+    
+$$ \lim_{x\to\infty} \tilde{u}_{nl}(x) = 0 $$
 
-1.) 0 < x <= x_c : u_tilda_1(x)
-2.) x_c <= x < x_f : u_tilda_11(x) with x_f >> 1
+The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at $x_{c}$:
 
-The boundary condition at x = 0 is u_tilda_1(0) = 0.
+1.) $` 0 < x <= x_{c} : \tilde{u}_{1}(x) `$
 
-We can then implement the Shooting method, which begins with choosing a value for E_tilda_nl, calculates u_tilda_1(x) and u_tilda_11(x), and then adjusts the value for E_tilda_nl until u_tilda_1'(x)/u_tilda_1(x) and u_tilda_11'(x)/u_tilda_11(x) match at x_c.
 
-In order to calculate x_c we can use the classical turning point which is defined as the point where
-  l(l+1) + x_c^2 * (V_tilda(x_c) + E_tilda_nl) = 0
+2.) $` x_{c} <= x < x_{f} : \tilde{u}_{11}(x) \text{  with  }  x_{f} >> 1 `$
+
+The boundary condition at $`x = 0`$ is $`\tilde{u}_{1}(0) = 0`$.
+
+We can then implement the Shooting method, which begins with choosing a value for $`\tilde{E}_{nl}`$, calculates $`\tilde{u}_{1}(x)`$ and $`\tilde{u}_{11}(x)`$, and then adjusts the value for $`\tilde{E}_{nl}`$ until $`\tilde{u}_{1}'(x)/\tilde{u}_{1}(x) `$ and $`\tilde{u}_{11}'(x)/\tilde{u}_{11}(x)`$ match at $x_{c}$.
+
+In order to calculate $x_{c}$ we can use the classical turning point which is defined as the point where
+
+
+ $$l(l+1) + x_{c}^{2} * (\tilde{V}_{x_{c}} + \tilde{E}_{nl}) = 0$$
+
 
 This equation can be solved via Newton's Method, described below.
 
