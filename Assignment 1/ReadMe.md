@@ -1,7 +1,9 @@
 # ReadMe for solve_test
+
 Author: Lisa Rudolph
+
 Email address: lisa.rudolph@mail.mcgill.ca
-McGill ID: 261023938
+
 
 ## Project Overview
 
