@@ -55,7 +55,7 @@ The process for solving the differential equation can be broken into two parts w
 1.) $` 0 < x <= x_{c} : \tilde{u}_{1}(x) `$
 
 
-2.) $` x_{c} <= x < x_{f} : \tilde{u}_{11}(x)$ with $ x_{f} >> 1 `$
+2.) $` x_{c} <= x < x_{f} : \tilde{u}_{11}(x) \text{  with  }  x_{f} >> 1 `$
 
 
 The boundary condition at $`x = 0`$ is $`\tilde{u}_{1}(0) = 0`$.
@@ -105,29 +105,38 @@ The Numerov method enables us to solve equations that take the form of $`d^{2}y/
 
 In order to do this, we use the general equation $`d^{2}y/dx^{2} = F(x)y(x)`$. Letting the initial point be $x_{0}$, we can declare the final point to be $x_{f}$, where $`x_{f} = x_{0} + N_{max}\times h`$ and $h$ is the step size. The step size $h$ can be calculated from $`h = (x_{f} - x_{0}) / N_{max}`$.
 
+
 Letting $`x_{n} = x_{0} + n\times h`$ (where $n$ in an integer ranging from 0 to $N_{max}$), $`y_{n} = y(x_{n})`$, and $`F_{n} = F(x_{n})`$, one can use Taylor expansion to show:
+
 
 ```math
 y_{n+1} + y_{n-1} - 2y_{n}  =  h^{2} d^{2}y/dx^{2}|(x=x_{n}) + h^{4}/12 d^{4}y/dx^{4}|(x=x_{n}) + O(h^{6}),
 ```
 
+
 which applies for any function y(x). Using $`d^{2}y/dx^{2} = F(x)y(x)`$, we can obtain
+
 
 ```math
 y_{n+1} + y_{n-1} - 2y_{n}  = h^{2} F_{n}\times y_{n} + h^{4}/12 d^{2}/dx^{2} F(x)y(x)|(x=x_{n}) + O(h^{6}).
 ```
 
+
 Using the fact that:
+
 
 ```math
 \frac{d^{2}}{dx^{2}} F(x)y(x)|(x=x_{n})  =  \frac{(Fy)_{n+1} + (Fy)_{n-1} -2(Fy)_{n}}{h^{2}} + O(h^{2}),
 ```
 
+
 we can obtain an expression for $y_(n+1)$:
+
 
 ```math
 y_{n+1}  =  [2(1 + (5h^{2}/12)F_{n})y_{n}  -  (1 - (h^{2}/12)F_{n-}))y_{n-1}] / (1 - (h^{2}/12)F_{n+1})  +  O(h^{6}).
 ```
+
 
 Therefore, by only knowing $y_{0}$ and $y_{1}$, one is able to solve for $y_{n}$, where $`n >= 2`$.
 
