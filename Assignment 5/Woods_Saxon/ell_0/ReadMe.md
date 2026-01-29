@@ -136,7 +136,7 @@ The Woods-Saxon potential can be described as follows:
 
 $$V(r) = \frac{- V_{0}}{[1 + exp((r-R)/a)]}$$
 
-Where $a$ represents the surface thickness of the nucleus, $R$ is the nuclear radius $`r_{0} * A^{1/3}`$, and $V_{0}$ is the potential well depth. In this project we let $a$=0.7, $V_{0}$=50/hbarc, and $r_{0}$ be given by $r0$ in `params.h`.
+Where $a$ represents the surface thickness of the nucleus, $R$ is the nuclear radius $`r_{0} * A^{1/3}`$, and $V_{0}$ is the potential well depth. In this project we let $a$=0.7, $`V_{0}=50/\hbar c`$, and $r_{0}$ be given by $r0$ in `params.h`.
 
 
 
