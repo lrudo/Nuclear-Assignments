@@ -23,13 +23,13 @@ This project was created in order to numerically the Schrodinger equation:
  $$ (-d^{2}/dx^{2} + l(l+1)/x^{2} + \tilde{V}(x) + \tilde{E}_{nl})\tilde{u}_{nl}(x) = 0 $$
 
 
-where mu is the effective mass, the momentum $$ka = \sqrt{s* /mu *Ea]$$, and $$x = ka*r$$. $$\tilde{V}(x)$$ and $$\tilde{E}_{nl} can be written in terms of:
+where mu is the effective mass, the momentum $$ ka = \sqrt{s* /mu *Ea] $$, and $$ x = ka*r $$. $$ \tilde{V}(x) $$ and $$ \tilde{E}_{nl} $$ can be written in terms of:
 
-
-  $$\tilde{V}(x) = V(x/ka)/Ea $$ and  
-
+$$\tilde{V}(x) = V(x/ka)/Ea $$ 
   
-  $$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
+  and  
+
+$$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
 
 
 We can define the energy scale Ea as the minimum value of the potential $$V_{eff} = 1/(2* \mu *r^{2}) + V(r)$$. Here we let l(l+1)->1 and assume that V(r) is no more singular than 1/r as r->0. In order to obtain the minimum point we need to solve the equation
