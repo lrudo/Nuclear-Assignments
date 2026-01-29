@@ -32,7 +32,7 @@ $$\tilde{V}(x) = V(x/ka)/Ea $$
 $$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
 
 
-We can define the energy scale $Ea$ as the minimum value of the potential $`V_{eff} = 1/(2* \mu *r^{2}) + V(r)`$. Here we let l(l+1)->1 and assume that V(r) is no more singular than $`1/r`$ as $`r->0`$. In order to obtain the minimum point we need to solve the equation
+We can define the energy scale $Ea$ as the minimum value of the potential $`V_{eff} = 1/(2* \mu *r^{2}) + V(r)`$. Here we let $`l(l+1)->1`$ and assume that V(r) is no more singular than $`1/r`$ as $`r->0`$. In order to obtain the minimum point we need to solve the equation
 
 
  $$ V'_{eff}(r) = -1/(\mu * r^{3}) + V'(r) = 0 $$
@@ -52,10 +52,10 @@ $$ \lim_{x\to\infty} \tilde{u}_{nl}(x) = 0 $$
 The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at $x_{c}$:
 
 
-1.) $` 0 < x <= x_{c}`$ : $`\tilde{u}_{1}(x) `$
+1.) $` 0 < x <= x_{c} : \tilde{u}_{1}(x) `$
 
 
-2.) $` x_{c} <= x < x_{f}`$ : $`\tilde{u}_{11}(x)$ with $ x_{f} >> 1 `$
+2.) $` x_{c} <= x < x_{f} : \tilde{u}_{11}(x)$ with $ x_{f} >> 1 `$
 
 
 The boundary condition at $`x = 0`$ is $`\tilde{u}_{1}(0) = 0`$.
