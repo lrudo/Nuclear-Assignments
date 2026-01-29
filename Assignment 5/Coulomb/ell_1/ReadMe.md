@@ -23,7 +23,7 @@ This project was created in order to numerically the Schrodinger equation:
  $$ (-d^{2}/dx^{2} + l(l+1)/x^{2} + \tilde{V}(x) + \tilde{E}_{nl})\tilde{u}_{nl}(x) = 0 $$
 
 
-where mu is the effective mass, the momentum $$ ka = \sqrt{s* /mu *Ea] $$, and $$ x = ka*r $$. $$ \tilde{V}(x) $$ and $$ \tilde{E}_{nl} $$ can be written in terms of:
+where $\mu$ is the effective mass, the momentum $ ka = \sqrt{s* /mu *Ea] $, and $ x = ka*r $. $ \tilde{V}(x) $ and $ \tilde{E}_{nl} $ can be written in terms of:
 
 $$\tilde{V}(x) = V(x/ka)/Ea $$ 
   
@@ -32,7 +32,7 @@ $$\tilde{V}(x) = V(x/ka)/Ea $$
 $$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
 
 
-We can define the energy scale Ea as the minimum value of the potential $$V_{eff} = 1/(2* \mu *r^{2}) + V(r)$$. Here we let l(l+1)->1 and assume that V(r) is no more singular than 1/r as r->0. In order to obtain the minimum point we need to solve the equation
+We can define the energy scale Ea as the minimum value of the potential $V_{eff} = 1/(2* \mu *r^{2}) + V(r)$. Here we let l(l+1)->1 and assume that V(r) is no more singular than 1/r as r->0. In order to obtain the minimum point we need to solve the equation
 
 
  $$ V'_{eff}(r) = -1/(\mu\times r^{3}) + V'(r) = 0 $$
@@ -43,24 +43,24 @@ This can be done by using the first derivative of the function fo calculate the 
 Following this, the goal is to numerically solve the Schrodinger equation with the following boundary conditions:
 
 
-     lim x->0 u_tilda_nl(x) = 0 
+$$ lim x->0 \tilde{u}_{nl}(x) = 0 $$
 
     
-     lim x ->oo u_tilda_nl(x) = 0 
+$$ lim x -> \inf \tilde{u}_{nl}(x) = 0 $$
     
 
-The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at x_c:
+The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at $x_{c}$:
 
 
-1.) $$ 0 < x <= x_c : \tilde{u}_{1}(x) $$
+1.) $ 0 < x <= x_{c} : \tilde{u}_{1}(x) $
 
 
-2.) $$ x_c <= x < x_f : \tilde{u}_{11}(x)$$ with $$ x_f >> 1 $$
+2.) $ x_{c} <= x < x_{f} : \tilde{u}_{11}(x)$ with $ x_{f} >> 1 $
 
 
-The boundary condition at x = 0 is $$\tilde{u}_{1}(0) = 0$$.
+The boundary condition at x = 0 is $\tilde{u}_{1}(0) = 0$.
 
-We can then implement the Shooting method, which begins with choosing a value for $$\tilde{E}_{nl}$$, calculates $$\tilde{u}_{1}(x)$$ and $$\tilde{u}_{11}(x)$$, and then adjusts the value for $$\tilde{E}_{nl}$$ until $$\tilde{u}_{1}'(x)/\tilde{u}_{1}(x) $$ and $$\tilde{u}_{11}'(x)/\tilde{u}_{11}(x)$$ match at $$x_{c}$$.
+We can then implement the Shooting method, which begins with choosing a value for $\tilde{E}_{nl}$, calculates $\tilde{u}_{1}(x)$ and $\tilde{u}_{11}(x)$, and then adjusts the value for $\tilde{E}_{nl}$ until $\tilde{u}_{1}'(x)/\tilde{u}_{1}(x) $ and $\tilde{u}_{11}'(x)/\tilde{u}_{11}(x)$ match at $x_{c}$.
 
 In order to calculate x_c we can use the classical turning point which is defined as the point where
 
@@ -92,16 +92,16 @@ And using that expression as well as the one for f(x+h), we can obtain an expres
 f"(x) = \frac{[f(x+h) + f(x-h) - 2f(x)]}{h^{2}} + O(h^{3}).
 ```
 
-In calculus the limit as h->0 would be taken, however we set h to a small value: $$h = x\times 1E-5$$, for all x, so long as x!= 0. The reason $$h = x \times 1E-5$$ is chosen is that this value is best for achieving double precision in our results.
+In calculus the limit as h->0 would be taken, however we set h to a small value: $h = x\times 1E-5$, for all x, so long as x!= 0. The reason $h = x \times 1E-5$ is chosen is that this value is best for achieving double precision in our results.
 
 
 ###### Numerov Method
 
-The Numerov method enables us to solve equations that take the form of d^2y/dx^2 = F(x)y(x). By only knowing $$y_{0}$$ and $$y_{1}$$, we are able to solve for $$y_{n+1}$$ for n >= 2.
+The Numerov method enables us to solve equations that take the form of $d^{2}y/dx^{2} = F(x)y(x)$. By only knowing $y_{0}$ and $y_{1}$, we are able to solve for $y_{n+1}$ for n >= 2.
 
-In order to do this, we use the general equation d^2y/dx^2 = F(x)y(x). Letting the initial point be $$x_{0}$$, we can declare the final point to be $$x_{f}$$, where $$x_{f} = x_{0} + N_{max}\times h$$ and h is the step size. The step size h can be calculated from $$h = (x_{f} - x_{0}) / N_{max}$$.
+In order to do this, we use the general equation $d^{2}y/dx^{2} = F(x)y(x)$. Letting the initial point be $x_{0}$, we can declare the final point to be $x_{f}$, where $x_{f} = x_{0} + N_{max}\times h$ and $h$ is the step size. The step size h can be calculated from $h = (x_{f} - x_{0}) / N_{max}$.
 
-Letting $$x_{n} = x_{0} + n\times h$$ (where n in an integer ranging from 0 to $$N_{max}$$), $$y_{n} = y(x_{n})$$, and $$F_{n} = F(x_{n})$$, one can use Taylor expansion to show:
+Letting $x_{n} = x_{0} + n\times h$ (where $n$ in an integer ranging from 0 to $N_{max}$), $y_{n} = y(x_{n})$, and $F_{n} = F(x_{n})$, one can use Taylor expansion to show:
 
 ```math
 y_{n+1} + y_{n-1} - 2y_{n}  =  h^{2} d^{2}y/dx^{2}|(x=x_{n}) + h^{4}/12 d^{4}y/dx^{4}|(x=x_{n}) + O(h^{6}),
