@@ -9,7 +9,7 @@ Email address: lisa.rudolph@mail.mcgill.ca
 
 This portion of the project covers how to calculate the first and second derivative for an arbitrary function, f(x).
 
-Once compiled, and the `deriv_test` executable run from the terminal, the resulting values for x, f(x), f'(x), and f"(x) are saved to 261023938_CA_2_Deriv_Test.dat for the function f(x) = sin(x).
+Once compiled, and the `deriv_test` executable run from the terminal, the resulting values for x, f(x), f'(x), and f"(x) are saved to `261023938_CA_2_Deriv_Test.dat` for the function f(x) = sin(x).
 
 Compiler: gcc 11.2.0
 
@@ -19,24 +19,24 @@ This project was created in order to numerically calculate the first and second 
 
 Analytical solutions for derivatives are often available, however sometimes the analytic derivatives are too complicated to calculate or are not available. In order to circumvent this issue we can employ a numerical method to calculate the derivative.
 
-In this project we calculate the first and second derivative for the function f(x) = sin(x).
+In this project we calculate the first and second derivative for the function $`f(x) = \sin(x)`$.
 
 
 # First and Second Derivative
 
 Using the Taylor expansion on the function f(x), we obtain the expression:
 
-f(x+h) = f(x) + hf'(x) + h^2/2 f"(x) + h^3/6 f"'(x) + O(h^4)
+$$f(x+h) = f(x) + hf'(x) + \frac{h^{2}}{2} f"(x) + \frac{h^{3}}{6} f"'(x) + O(h^{4})$$
 
 From here we can obtain an expression for f'(x):
 
-f'(x) = [f(x+h) - f(x-h)]/2h + O(h^2)
+$$f'(x) = \frac{f(x+h) - f(x-h)}{2h} + O(h^{2})$$
 
 And using that expression as well as the one for f(x+h), we can obtain an expression for f"(x):
 
-f"(x) = [f(x+h) + f(x-h) - 2f(x)]/(h^2) + O(h^3).
+$$f"(x) = \frac{f(x+h) + f(x-h) - 2f(x)}{h^{2}} + O(h^{3})$$
 
-In calculus the limit as h->0 would be taken, however we set h to a small value: h = x*1E-5, for all x, so long as x!= 0. The reason h = x *1E-5 is chosen is that this value is best for achieving double precision in our results.
+In calculus, the limit as $`h->0`$ would be taken, however we set h to a small value: $`h = x*1E-5`$, for all $x$, so long as $`x!= 0`$. The reason $`h = x *1E-5`$ is chosen is that this value is best for achieving double precision in our results.
 
 ## Description of Files
 
