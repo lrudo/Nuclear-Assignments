@@ -1,0 +1,11 @@
+
+### Test 1 ###
+x_extremum: 1.000000e+00 , f_extremum: 0.000000e+00 , curvature: 2.000000e+00
+
+
+### Test 2 ###
+x_extremum: 1.000000e+00 , f_extremum: -1.000000e+00 , curvature: 2.000000e+00
+
+
+### Test 3 ###
+x_extremum: 2.807731e+00 , f_extremum: -7.727035e-01 , curvature: 1.687502e-01
