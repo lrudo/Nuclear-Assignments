@@ -1,0 +1,38 @@
+Parameters:
+mass = 5.110000e+05 eV
+r0 = 5.289648e-02 nm
+Ea = 1.361287e+01 eV
+ka = 3.729927e+03 eV
+ell = 1
+x0 = 1.000000e+00
+nucA = 0.000000e+00
+nucZ = 0.000000e+00
+nmax_forward = 500
+nmax_backward = 500
+
+Dynamic Parameters:
+Eb = 0.000000e+00 eV
+kb = 1.043648e+01 eV
+rc = 0.000000e+00 nm
+Et = 3.046757e-314
+xc = 2.124577e-314
+rf = 2.124586e-314
+xf = 3.046757e-314
+Et_min = 4.940656e-323
+Et_max = 4.901131e-321
+
+Numerov Parameters (forward):
+x_f_f = 5.470770e-315
+x_i_f = 2.125228e-314
+y_0_f = 2.125485e-314
+y_1_f = 3.046757e-314
+nmax_f = 500
+h_f = 2.125226e-314
+
+Numerov Parameters (backward):
+x_f_b = 0.000000e+00
+x_i_b = 2.125605e-314
+y_0_b = 5.304989e-315
+y_1_b = 2.125228e-314
+nmax_b = 500
+h_b = 2.125226e-314
