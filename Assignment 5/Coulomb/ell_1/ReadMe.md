@@ -20,10 +20,10 @@ Compiler: gcc 11.2.0
 This project was created in order to numerically the Schrodinger equation:
 
 
- $$ (-d^{2}/dx^{2} + l(l+1)/x^{2} + \tilde{V}(x) + \tilde{E}_{nl})\tilde{u}_{nl}(x) = 0 $$
+ $$ ( -d^{2}/dx^{2} + l(l+1)/x^{2} + \tilde{V}(x) + \tilde{E}_{nl} ) \tilde{u}_{nl}(x) = 0 $$
 
 
-where $\mu$ is the effective mass, the momentum $` ka = \sqrt{s* /mu *Ea] `$, and $` x = ka*r `$. $` \tilde{V}(x) `$ and $` \tilde{E}_{nl} `$ can be written in terms of:
+where $\mu$ is the effective mass, the momentum $` ka = \sqrt{s* /mu *Ea} `$, and $` x = ka*r `$. $` \tilde{V}(x) `$ and $` \tilde{E}_{nl} `$ can be written in terms of:
 
 $$\tilde{V}(x) = V(x/ka)/Ea $$ 
   
