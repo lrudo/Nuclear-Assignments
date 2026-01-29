@@ -69,78 +69,80 @@ This project sets up the preparation for the Shooting method, which will be impl
 
 Using the Taylor expansion on the function f(x), we obtain the expression:
 
-f(x+h) = f(x) + hf'(x) + h^2/2 f"(x) + h^3/6 f"'(x) + O(h^4)
+$$f(x+h) = f(x) + hf'(x) + h^{2}/2 f"(x) + h^{3}/6 f"'(x) + O(h^{4})$$
 
 From here we can obtain an expression for f'(x):
 
-f'(x) = [f(x+h) - f(x-h)]/2h + O(h^2)
+$$f'(x) = \frac{[f(x+h) - f(x-h)]}{2h} + O(h^{2})$$
 
 And using that expression as well as the one for f(x+h), we can obtain an expression for f"(x):
 
-f"(x) = [f(x+h) + f(x-h) - 2f(x)]/(h^2) + O(h^3).
 
-In calculus the limit as h->0 would be taken, however we set h to a small value: h = x*1E-5, for all x, so long as x!= 0. The reason h = x *1E-5 is chosen is that this value is best for achieving double precision in our results.
+$$f"(x) = \frac{[f(x+h) + f(x-h) - 2f(x)]}{h^{2}} + O(h^{3})$$
+
+
+In calculus, the limit as $`h->0`$ would be taken, however we set h to a small value: $`h = x * 1E-5`$, for all $x$, so long as $`x!= 0.`$ The reason $`h = x * 1E-5`$ is chosen is that this value is best for achieving double precision in our results.
 
 ###### Numerov Method
 
-The Numerov method enables us to solve equations that take the form of d^2y/dx^2 = F(x)y(x). By only knowing y_0 and y_1, we are able to solve for y_(n+1) for n >= 2.
+The Numerov method enables us to solve equations that take the form of $`d^{2}y/dx^{2} = F(x)y(x)`$. By only knowing $y_{0}$ and $y_{1}$, we are able to solve for $`y_{n+1}`$ for $`n >= 2`$.
 
-In order to do this, we use the general equation d^2y/dx^2 = F(x)y(x). Letting the initial point be x_0, we can declare the final point to be x_f, where x_f = x_0 + N_max*h and h is the step size. The step size h can be calculated from h = (x_f - x_0) / N_max.
+In order to do this, we use the general equation $`d^{2}y/dx^{2} = F(x)y(x)`$. Letting the initial point be $x_{0}$, we can declare the final point to be $x_{f}$, where $`x_{f} = x_{0} + N_{max}\times h`$ and $h$ is the step size. The step size $h$ can be calculated from $`h = (x_{f} - x_{0}) / N_{max}`$.
 
-Letting x_n = x_0 + n*h (where n in an integer ranging from 0 to N_max), y_n = y(x_n), and F_n = F(x_n), one can use Taylor expansion to show:
+Letting $`x_{n} = x_{0} + n* h`$ (where $n$ in an integer ranging from 0 to $N_{max}$), $`y_{n} = y(x_{n})`$, and $`F_{n} = F(x_{n})`$, one can use Taylor expansion to show:
 
-y_(n+1) + y_(n-1) - 2y_n  =  h^2 d^2y/dx^2|(x=x_n) + h^4/12 d^4y/dx^4|(x=x_n) + O(h^6),
+$$y_{n+1} + y_{n-1} - 2y_{n}  =  h^{2} \frac{d^{2}y}{dx^{2}}|(x=x_{n}) + \frac{h^{4}}{12} \frac{d^{4}y}{dx^{4}}|(x=x_{n}) + O(h^{6})$$
 
-which applies for any function y(x). Using d^2y/dx^2 = F(x)y(x), we can obtain
+which applies for any function y(x). Using $`d^{2}y/dx^{2} = F(x)y(x)`$, we can obtain
 
-y_(n+1) + y_(n-1) - 2y_n  = h^2 F_n*y_n + h^4/12 d^2/dx^2 F(x)y(x)|(x=x_n) + O(h^6).
+$$y_{n+1} + y_{n-1} - 2y_{n}  = h^{2} F_{n}*y_{n} + \frac{h^{4}}{12} \frac{d^{2}}{dx^{2}} F(x)y(x)|(x=x_{n}) + O(h^{6})$$
 
 Using the fact that:
 
-d^2/dx^2 F(x)y(x)|(x=x_n)  =  [(Fy)__(n+1) + (Fy)_(n-1) -2(Fy)_n]/ h^2 + O(h^2),
+$$\frac{d^{2}}{dx^{2}} F(x)y(x)|(x=x_{n})  =  \frac{(Fy)_{n+1} + (Fy)_{n-1} -2(Fy)_{n}}{h^{2}} + O(h^{2})$$
 
-we can obtain an expression for y_(n+1):
+we can obtain an expression for $y_{n+1}$:
 
-y_(n+1)  =  [2(1 + (5h^2/12)F_n)y_n  -  (1 - (h^2/12)F_(n-1))y_(n-1)] / (1 - (h^2/12)F_(n+1))  +  O(h^6).
+$$y_{n+1}  =  [2(1 + (5h^{2}/12)F_{n})y_{n}  -  (1 - (h^{2}/12)F_{n-1}))y_{n-1}] / (1 - (h^{2}/12)F_{n+1})  +  O(h^{6})$$
 
-Therefore, by only knowing y_0 and y_1, one is able to solve for y_n, where n >= 2.
+
+Therefore, by only knowing $y_{0}$ and $y_{1}$, one is able to solve for $y_{n}$, where $`n >= 2`$.
 
 ###### Newton's Method
 
 In Newton's Method we use the approximate definition of the derivative:
 
-f'(x_n) = [f(x_(n+1)) - f(x_n)] / (x_(n+1) - x_n),
+$$f'(x_{n}) = \frac{f(x_{n+1}) - f(x_{n})} / {x_{n+1} - x_{n}}$$
 
-rearrange it, and let f(x_(n+1)) = nu, in order to achieve the expression:
+rearrange it, and let $`f(x_{n+1}) = \nu`$, in order to achieve the expression:
 
-x_(n+1) = x_n + (nu - f(x_n))/ f'(x_n).
+$$x_{n+1} = x_{n} + (\nu - f(x_{n}))/ f'(x_{n})$$
 
-Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for x, x_0.
+Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for $x$, $x_{0}$.
 
 
 ###### Bisect Search Method
 
-In the Bisect Search Method we evaluate f(x) - nu between the range x_min and x_max in order to find f_min and f_max. As well, we calculate the average value of x, x_mid, to find f_mid. Once these are known, we compare them to one another.
+In the Bisect Search Method we evaluate $`f(x) - \nu`$ between the range $x_{min}$ and $x_{max}$ in order to find $f_{min}$ and $f_{max}$. As well, we calculate the average value of $x$, $x_{mid}$, to find $f_{mid}$. Once these are known, we compare them to one another.
 
-If f_min*f_mid < 0 then we set a new value for x_max, x_mid, and then repeat the process.
+If $`f_{min}*f_{mid} < 0 `$then we set a new value for $x_{max}$, $x_{mid}$, and then repeat the process.
 
-However, if f_mid*f_max < 0 then we set a new value for x_min, x_max, and once again repeat the process.
+However, if $`f_{mid}*f_{max} < 0 `$then we set a new value for $x_{min}$, $x_{max}$, and once again repeat the process.
 
-We continue doing this until |f_mid/nu| < epsilon, where epsilon is a sufficiently small enough number that implies that our method solves our problem to enough accuracy. Once this criteria is met, it implies that the value of x_mid at that time is the solution to our problem.
-
+We continue doing this until $`|f_{mid}/\nu| < \epsilon,`$ where $\epsilon$ is a sufficiently small enough number that implies that our method solves our problem to enough accuracy. Once this criteria is met, it implies that the value of $x_{mid}$ at that time is the solution to our problem.
 
 
 ###### Coulomb Potential
 
 The Coulomb potential is described by
 
-V(r) = - Q / [4*pi*epsilon_0*r]
+$$ V(r) = \frac{- Q} / {4*\pi*\epsilon_{0}*r}$$
 
 which can be written as
 
-V(r) = - alpha_EM / r,
+$$V(r) = \frac{- \alpha_{EM}}{r} $$
 
-where alpha_EM= 1/137.
+where $`\alpha_{EM}= 1/137`$.
 
 
 
