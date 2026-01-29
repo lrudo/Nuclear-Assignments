@@ -20,7 +20,7 @@ Compiler: gcc 11.2.0
 This project was created in order to numerically the Schrodinger equation:
 
 
-(-d^2/dx^2 + l(l+1)/x^2 + V_tilda(x) + E_tilda_nl)u_tilda_nl(x) = 0
+  (-d^2/dx^2 + l(l+1)/x^2 + V_tilda(x) + E_tilda_nl)u_tilda_nl(x) = 0
 
 
 where mu is the effective mass, the momentum ka = sqrt(s*mu*Ea), and x = ka*r. V_tilda(x) and E_tilda_nl can be written in terms of:
@@ -35,7 +35,7 @@ where mu is the effective mass, the momentum ka = sqrt(s*mu*Ea), and x = ka*r. V
 We can define the energy scale Ea as the minimum value of the potential V_eff = 1/(2*mu*r^2) + V(r). Here we let l(l+1)->1 and assume that V(r) is no more singular than 1/r as r->0. In order to obtain the minimum point we need to solve the equation
 
 
-V'_eff(r) = -1/(mu*r^3) + V'(r) = 0
+  V'_eff(r) = -1/(mu*r^3) + V'(r) = 0
 
 
 This can be done by using the first derivative of the function fo calculate the extremum.
