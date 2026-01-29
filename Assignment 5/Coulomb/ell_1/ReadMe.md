@@ -29,7 +29,7 @@ $$\tilde{V}(x) = V(x/ka)/Ea $$
   
   and  
 
-$$\tilde{E}_{nl} = -|E_{nl}|/Ea $$.
+$`\tilde{E}_{nl} = -|E_{nl}|/Ea `$.
 
 
 We can define the energy scale $Ea$ as the minimum value of the potential $`V_{eff} = 1/(2* \mu *r^{2}) + V(r)`$. Here we let l(l+1)->1 and assume that V(r) is no more singular than $`1/r`$ as $`r->0`$. In order to obtain the minimum point we need to solve the equation
@@ -43,7 +43,7 @@ This can be done by using the first derivative of the function fo calculate the 
 Following this, the goal is to numerically solve the Schrodinger equation with the following boundary conditions:
 
 
-$$ \lim_{x\to\0} \tilde{u}_{nl}(x) = 0 $$
+$$ \lim_{x\to 0} \tilde{u}_{nl}(x) = 0 $$
 
     
 $$ \lim_{x\to\infty} \tilde{u}_{nl}(x) = 0 $$
