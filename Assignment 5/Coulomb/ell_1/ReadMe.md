@@ -84,19 +84,17 @@ $$f(x+h) = f(x) + hf'(x) + h^{2}/2 f"(x) + h^{3}/6 f"'(x) + O(h^{4})$$
 
 From here we can obtain an expression for f'(x):
 
-```math
 
-f'(x) = \frac{[f(x+h) - f(x-h)]}{2h} + O(h^{2})
-```
+$$f'(x) = \frac{[f(x+h) - f(x-h)]}{2h} + O(h^{2})$$
+
 
 And using that expression as well as the one for f(x+h), we can obtain an expression for f"(x):
 
-```math
 
-f"(x) = \frac{[f(x+h) + f(x-h) - 2f(x)]}{h^{2}} + O(h^{3}).
-```
+$$f"(x) = \frac{[f(x+h) + f(x-h) - 2f(x)]}{h^{2}} + O(h^{3})$$
 
-In calculus the limit as $`h->0`$ would be taken, however we set h to a small value: $`h = x\times 1E-5`$, for all $x$, so long as $`x!= 0.`$ The reason $`h = x \times 1E-5`$ is chosen is that this value is best for achieving double precision in our results.
+
+In calculus, the limit as $`h->0`$ would be taken, however we set h to a small value: $`h = x\times 1E-5`$, for all $x$, so long as $`x!= 0.`$ The reason $`h = x \times 1E-5`$ is chosen is that this value is best for achieving double precision in our results.
 
 
 ###### Numerov Method
@@ -110,7 +108,6 @@ Letting $`x_{n} = x_{0} + n\times h`$ (where $n$ in an integer ranging from 0 to
 
 
 $$y_{n+1} + y_{n-1} - 2y_{n}  =  h^{2} d^{2}y/dx^{2}|(x=x_{n}) + h^{4}/12 d^{4}y/dx^{4}|(x=x_{n}) + O(h^{6})$$
-
 
 
 
@@ -129,7 +126,7 @@ $$\frac{d^{2}}{dx^{2}} F(x)y(x)|(x=x_{n})  =  \frac{(Fy)_{n+1} + (Fy)_{n-1} -2(F
 we can obtain an expression for $y_(n+1)$:
 
 
-$$y_{n+1}  =  [2(1 + (5h^{2}/12)F_{n})y_{n}  -  (1 - (h^{2}/12)F_{n-}))y_{n-1}] / (1 - (h^{2}/12)F_{n+1})  +  O(h^{6})$$
+$$y_{n+1}  =  [2(1 + (5h^{2}/12)F_{n})y_{n}  -  (1 - (h^{2}/12)F_{n-1}))y_{n-1}] / (1 - (h^{2}/12)F_{n+1})  +  O(h^{6})$$
 
 
 Therefore, by only knowing $y_{0}$ and $y_{1}$, one is able to solve for $y_{n}$, where $`n >= 2`$.
