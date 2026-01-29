@@ -136,36 +136,36 @@ Therefore, by only knowing $y_{0}$ and $y_{1}$, one is able to solve for $y_{n}$
 
 In Newton's Method we use the approximate definition of the derivative:
 
-f'(x_n) = [f(x_(n+1)) - f(x_n)] / (x_(n+1) - x_n),
+$$f'(x_{n}) = \frac{f(x_{n+1}) - f(x_{n})} / {x_{n+1} - x_{n}}$$
 
-rearrange it, and let f(x_(n+1)) = nu, in order to achieve the expression:
+rearrange it, and let $`f(x_{n+1}) = \nu`$, in order to achieve the expression:
 
-x_(n+1) = x_n + (nu - f(x_n))/ f'(x_n).
+$$x_{n+1} = x_{n} + (\nu - f(x_{n}))/ f'(x_{n})$$
 
-Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for x, x_0.
+Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for $x$, $x_{0}$.
 
 ###### Bisect Search Method
 
-In the Bisect Search Method we evaluate f(x) - nu between the range x_min and x_max in order to find f_min and f_max. As well, we calculate the average value of x, x_mid, to find f_mid. Once these are known, we compare them to one another.
+In the Bisect Search Method we evaluate $`f(x) - \nu`$ between the range $x_{min}$ and $x_{max}$ in order to find $f_{min}$ and $f_{max}$. As well, we calculate the average value of $x$, $x_{mid}$, to find $f_{mid}$. Once these are known, we compare them to one another.
 
-If f_min*f_mid < 0 then we set a new value for x_max, x_mid, and then repeat the process.
+If $`f_{min}*f_{mid} < 0 `$then we set a new value for $x_{max}$, $x_{mid}$, and then repeat the process.
 
-However, if f_mid*f_max < 0 then we set a new value for x_min, x_max, and once again repeat the process.
+However, if $`f_{mid}*f_{max} < 0 `$then we set a new value for $x_{min}$, $x_{max}$, and once again repeat the process.
 
-We continue doing this until |f_mid/nu| < epsilon, where epsilon is a sufficiently small enough number that implies that our method solves our problem to enough accuracy. Once this criteria is met, it implies that the value of x_mid at that time is the solution to our problem.
+We continue doing this until $`|f_{mid}/\nu| < \epsilon,`$ where $\epsilon$ is a sufficiently small enough number that implies that our method solves our problem to enough accuracy. Once this criteria is met, it implies that the value of $x_{mid}$ at that time is the solution to our problem.
 
 
 ###### Coulomb Potential
 
 The Coulomb potential is described by
 
-V(r) = - Q / [4*pi*epsilon_0*r]
+$$ V(r) = \frac{- Q} / {4*\pi*\epsilon_{0}*r}$$
 
 which can be written as
 
-V(r) = - alpha_EM / r,
+$$V(r) = \frac{- \alpha_{EM}}{r} $$
 
-where alpha_EM= 1/137.
+where $`\alpha_{EM}= 1/137`$.
 
 
 
