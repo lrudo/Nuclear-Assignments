@@ -123,7 +123,7 @@ Using the fact that:
 $$\frac{d^{2}}{dx^{2}} F(x)y(x)|(x=x_{n})  =  \frac{(Fy)_{n+1} + (Fy)_{n-1} -2(Fy)_{n}}{h^{2}} + O(h^{2})$$
 
 
-we can obtain an expression for $y_(n+1)$:
+we can obtain an expression for $y_{n+1}$:
 
 
 $$y_{n+1}  =  [2(1 + (5h^{2}/12)F_{n})y_{n}  -  (1 - (h^{2}/12)F_{n-1}))y_{n-1}] / (1 - (h^{2}/12)F_{n+1})  +  O(h^{6})$$
