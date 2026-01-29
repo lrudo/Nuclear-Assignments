@@ -29,7 +29,7 @@ $$\tilde{V}(x) = V(x/ka)/Ea $$
   
   and  
 
-$`\tilde{E}_{nl} = -|E_{nl}|/Ea `$.
+$$\tilde{E}_{nl} = -|E_{nl}|/Ea $$
 
 
 We can define the energy scale $Ea$ as the minimum value of the potential $`V_{eff} = 1/(2* \mu *r^{2}) + V(r)`$. Here we let l(l+1)->1 and assume that V(r) is no more singular than $`1/r`$ as $`r->0`$. In order to obtain the minimum point we need to solve the equation
@@ -52,19 +52,22 @@ $$ \lim_{x\to\infty} \tilde{u}_{nl}(x) = 0 $$
 The process for solving the differential equation can be broken into two parts were the equation is solved for two different conditions, and then they are matched at $x_{c}$:
 
 
-1.) $` 0 < x <= x_{c} : \tilde{u}_{1}(x) `$
+1.) $` 0 < x <= x_{c}`$ : $`\tilde{u}_{1}(x) `$
 
 
-2.) $` x_{c} <= x < x_{f} : \tilde{u}_{11}(x)$ with $ x_{f} >> 1 `$
+2.) $` x_{c} <= x < x_{f}`$ : $`\tilde{u}_{11}(x)$ with $ x_{f} >> 1 `$
 
 
-The boundary condition at x = 0 is $`\tilde{u}_{1}(0) = 0`$.
+The boundary condition at $`x = 0`$ is $`\tilde{u}_{1}(0) = 0`$.
+
 
 We can then implement the Shooting method, which begins with choosing a value for $`\tilde{E}_{nl}`$, calculates $`\tilde{u}_{1}(x)`$ and $`\tilde{u}_{11}(x)`$, and then adjusts the value for $`\tilde{E}_{nl}`$ until $`\tilde{u}_{1}'(x)/\tilde{u}_{1}(x) `$ and $`\tilde{u}_{11}'(x)/\tilde{u}_{11}(x)`$ match at $x_{c}$.
 
 In order to calculate x_c we can use the classical turning point which is defined as the point where
 
+
   $$l(l+1) + x_{c}^{2} * (\tilde{V}_{x_{c}} + \tilde{E}_{nl}) = 0$$
+  
 
 This equation can be solved via Newton's Method, described below.
 
@@ -87,6 +90,7 @@ f'(x) = \frac{[f(x+h) - f(x-h)]}{2h} + O(h^{2})
 ```
 
 And using that expression as well as the one for f(x+h), we can obtain an expression for f"(x):
+
 ```math
 
 f"(x) = \frac{[f(x+h) + f(x-h) - 2f(x)]}{h^{2}} + O(h^{3}).
