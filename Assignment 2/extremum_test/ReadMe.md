@@ -7,9 +7,9 @@ Email address: lisa.rudolph@mail.mcgill.ca
 
 ## Project Overview
 
-This project covers the method for solving f'(x) = 0 for x, relying on calculating the first derivative of the function f(x) and using Newton's method to solve for f'(x) = 0.
+This project covers the method for solving $`f'(x) = 0`$ for $x$, relying on calculating the first derivative of the function f(x) and using Newton's method to solve for $`f'(x) = 0`$.
 
-Once compiled, and the `extremum_test` executable run from the terminal, 261023938_CA_2_Results.dat is created that displays the results for the extremum (x_extremum), the function evaluated at x_extremum, and the value of the curvature (which is just f"(x_extremum)).
+Once compiled, and the `extremum_test` executable run from the terminal, `261023938_CA_2_Results.dat` is created that displays the results for the extremum (x_extremum), the function evaluated at x_extremum, and the value of the curvature (which is just f"(x_extremum)).
 
 There are three different test functions in `main_extremum.c` that can be chosen, however Test 1 is the default.
 
@@ -24,28 +24,31 @@ This project was created in order to calculate the minimum or maximum of a given
 
 Using the Taylor expansion on the function f(x), we obtain the expression:
 
-f(x+h) = f(x) + hf'(x) + h^2/2 f"(x) + h^3/6 f"'(x) + O(h^4)
+$$f(x+h) = f(x) + hf'(x) + \frac{h^{2}}{2} f"(x) + \frac{h^{3}}{6} f"'(x) + O(h^{4})$$
 
 From here we can obtain an expression for f'(x):
 
-f'(x) = [f(x+h) - f(x-h)]/2h + O(h^2)
+$$f'(x) = \frac{f(x+h) - f(x-h)}{2h} + O(h^{2})$$
 
 And using that expression as well as the one for f(x+h), we can obtain an expression for f"(x):
 
-f"(x) = [f(x+h) + f(x-h) - 2f(x)]/(h^2) + O(h^3).
+$$f"(x) = \frac{f(x+h) + f(x-h) - 2f(x)}{h^{2}} + O(h^{3})$$
 
-In calculus the limit as h->0 would be taken, however we set h to a small value: h = x*1E-5, for all x, so long as x!= 0. The reason h = x *1E-5 is chosen is that this value is best for achieving double precision in our results.
+In calculus the limit as $`h->0`$ would be taken, however we set h to a small value: $`h = x*1E-5`$, for all $x$, so long as $`x!= 0`$. The reason $`h = x *1E-5`$ is chosen is that this value is best for achieving double precision in our results.
 
 
 
 # Newton's Method
 
 In Newton's Method we use the approximate definition of the derivative:
-f'(x_n) = [f(x_(n+1)) - f(x_n)] / (x_(n+1) - x_n),
-rearrange it, and let f(x_(n+1)) = nu, in order to achieve the expression:
-x_(n+1) = x_n + (nu - f(x_n))/ f'(x_n).
 
-Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for x, x_0.
+$$f'(x_{n}) = \frac{f(x_{n+1}) - f(x_{n})}{(x_{n+1} - x_{n}}$$
+
+rearrange it, and let $`f(x_{n+1}) = \nu`$, in order to achieve the expression:
+
+$$x_{n+1} = x_{n} + \frac{\nu - f(x_{n})}{f'(x_{n})}$$
+
+Unlike the Bisect Search Method that was used in the previous computing assignment, we do not specify a range, instead we specify a starting point value for $x$, $x_{0}$.
 
 
 
