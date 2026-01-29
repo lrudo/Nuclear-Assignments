@@ -1,0 +1,24 @@
+
+Et_min: 0.01, Et_max: 1.1
+Et = 2.772197e-02
+Eb = 3.773756e-01 eV
+
+1st Energy Level
+Et_min: 0.9, Et_max: 1.1
+Et = 9.999302e-01
+Eb = 1.361192e+01 eV
+
+2nd Energy Level
+Et_min: 0.24, Et_max: 0.26
+Et = 2.499753e-01
+Eb = 3.402882e+00 eV
+
+3rd Energy Level
+Et_min: 0.1, Et_max: 0.15
+Et = 1.110797e-01
+Eb = 1.512114e+00 eV
+
+4th Energy Level
+Et_min: 0.06, Et_max: 0.07
+Et = 6.245995e-02
+Eb = 8.502593e-01 eV
